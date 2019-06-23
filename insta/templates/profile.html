@@ -1,0 +1,29 @@
+{%extends 'base.html'%}
+{%load bootstrap4%}
+
+{% block content %}
+{{block.super}}
+<div class="container">
+    <!--looping through news-->
+    
+    {% for photo_item in photos %}
+    <div class="row">
+            <!-- displaying News articles -->
+            
+
+            <!--Display news Article images  -->
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <img src="{{image.url}}" class="img-responsive" alt="Image">
+          </div>
+
+        
+          </div>
+        
+          {% empty %}
+          <div class="row">
+            <h2 class="text-center">There is No Profile</h2>
+          </div>
+          {% endfor %}
+        
+        </div>
+{% endblock %}

@@ -1,0 +1,16 @@
+                    List of relations
+ Schema |            Name            | Type  |   Owner   
+--------+----------------------------+-------+-----------
+ public | auth_group                 | table | canssidle
+ public | auth_group_permissions     | table | canssidle
+ public | auth_permission            | table | canssidle
+ public | auth_user                  | table | canssidle
+ public | auth_user_groups           | table | canssidle
+ public | auth_user_user_permissions | table | canssidle
+ public | django_admin_log           | table | canssidle
+ public | django_content_type        | table | canssidle
+ public | django_migrations          | table | canssidle
+ public | django_session             | table | canssidle
+ public | insta_profile              | table | canssidle
+(11 rows)
+
