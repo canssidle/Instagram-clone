@@ -1,4 +1,4 @@
-<!-- <!-- {% extends 'base.html' %}
+{% extends 'base.html' %}
 {% load bootstrap4 %}
 {% load utils %}
 {% block content %}
@@ -13,7 +13,7 @@
             <div class="form-group">
                 <input type="submit" class="btn btn-primary btn-sm" value="Upload">
             </div>
-        </form> -->
+        </form>
         {% for image in images %}
         <div class="card">
           <div class="card-body">
@@ -24,7 +24,7 @@
                 </a>
               </div>
           </div>
-            <div class="card-text">
+            <!-- <div class="card-text">
                 <div style="background-image: url({{image.image.url}});background-size: contain;position: sticky" ondblclick="like({{image.id}})">
                     <img src="{{image.image.url}}" style="visibility: hidden;"  width="100%"/>
                     <span class="likeheart instaicon" id="likeheart{{image.id}}"></span>
