@@ -1,25 +1,25 @@
 # from django.shortcuts import render,redirect
-# from django.contrib.auth.decorators import login_required
-# from .forms import NewUserForm,PostForm,CommentForm,ProfileForm
-# from .email import send_welcome_email
-# from django.http import HttpResponse, Http404,HttpResponseRedirect,request
-# from .models import *
+from django.contrib.auth.decorators import login_required
+from .forms import NewUserForm,PostForm,CommentForm,ProfileForm
+from .email import send_welcome_email
+from django.http import HttpResponse, Http404,HttpResponseRedirect,request
+from .models import *
 
 
-# # Create your views here.
+# Create your views here.
 
 
-# @login_required(login_url='/accounts/login/')
-# def home(request):
-#     image_form = PostForm()
-#     image = Post.objects.all()
-#     print('-'* 20,image)
-#     commentform = CommentForm()
-#     if request.method == 'POST':
-#         form = PostForm(request.POST, request.FILES)
-#         if form.is_valid():
-#             request.user.profile.post(form)
-#     return render(request, 'landing.html', {'images':image},locals())
+@login_required(login_url='/accounts/login/')
+def home(request):
+    image_form = PostForm()
+    image = Post.objects.all()
+    print('-'* 20,image)
+    commentform = CommentForm()
+    if request.method == 'POST':
+        form = PostForm(request.POST, request.FILES)
+        if form.is_valid():
+            request.user.profile.post(form)
+    return render(request, 'landing.html', {'images':image},locals())
 
 
 
