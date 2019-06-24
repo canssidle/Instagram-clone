@@ -96,12 +96,12 @@ def unlike(request, post_id):
     request.user.profile.unlike(post)
     return JsonResponse(post.count_likes, safe=False)
 
-# @login_required(login_url='/accounts/login/')
-# def togglefollow(request, user_id):
-#     target = get_object_or_404(User, pk=user_id).profile
-#     request.user.profile.togglefollow(target)
-#     response = [target.followers.count(),target.following.count()]
-#     return JsonResponse(response, safe=False)
+@login_required(login_url='/accounts/login/')
+def togglefollow(request, user_id):
+    target = get_object_or_404(User, pk=user_id).profile
+    request.user.profile.togglefollow(target)
+    response = [target.followers.count(),target.following.count()]
+    return JsonResponse(response, safe=False)
 
 # @login_required(login_url='/accounts/login/')
 # def find(request, name):
