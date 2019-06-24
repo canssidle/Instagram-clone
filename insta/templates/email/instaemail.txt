@@ -1,2 +1,0 @@
-Hello{{name}}
-Thanks for joining instagram where you can now connect with your friends and share photos.

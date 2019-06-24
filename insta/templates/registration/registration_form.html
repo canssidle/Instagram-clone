@@ -1,58 +1,23 @@
-{%extends "base.html"%} 
+<!-- {%extends "registration/base.html"%}
 {% load bootstrap4 %}
 {% load static %}
 {% block content %}
+  <div class="login-clean">
+    <div class="invitation"></div>
+    <form action="/accounts/register/" method="post">
+      <h3 class="invite"><img src="/static/img/home-logo.png"></h3>
 
-<style>
- img{
-   width:300px;
-   height: 350px;
- }
- .invite{
-    font-family: 'Pacifico', cursive;
-
-}
-
-</style>
-<div class="panel panel-default">
-   <div class="panel-heading"></div>
-
-  <div class="panel-body">
-    <div class="container">
-        <div class="row">
-          <!-- Empty div -->
-          <div class="col-md-3"></div>
-          <div class="col-md-3">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1-2jVqK2Nl-A3fx2KsHyZpLU_QbzSTWd1_DcgqcTaNRPoQNbF" alt="">
-          </div>
-          <div class="col-md-4">
-        <div class="card" style="width: 18rem;">
-
-        <div class="loginform">
-        <div class="card-body">
-
-        <div class="icon instaicon"></div>
-        <div class="invitation">
-            <h3 class="invite">Instagram.</h3>
+      {% csrf_token %}
+      {% bootstrap_form form%}
+      <div class="form-group" style="text-align: center">
+        <input type="submit" class="btn btn-primary btn-sm" value="Signup">
+        <div class="invite" style="margin:0 0 5px 0;">
+          Do you have an account?
+          <a href="/accounts/login">Login</a>
         </div>
-        <form  action="/accounts/register/" method="post">
-          {% csrf_token %}
-          {% bootstrap_form form layout='inline'%}
-          <div class="form-group" style="text-align: center">
-            <input type="submit" class="btn btn-primary btn-sm" value="Sign up">
-          </div>
-
-        </form>
-        </div>
-    </div>
-    </div>
-    
-    </div>
-    </div>
-    </div>
-    </div>
+      </div>
+      <input type="hidden" name="next" value="{{next}}">
+    </form>
   </div>
-  </div>
-{% endblock %}
-
-
+</div>
+{% endblock %} -->

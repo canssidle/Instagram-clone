@@ -39,6 +39,7 @@ EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 # Application definition
 
 INSTALLED_APPS = [
+    
     'tinymce',
     'insta',
     'bootstrap4',

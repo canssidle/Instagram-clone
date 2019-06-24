@@ -1,57 +1,109 @@
-from django.shortcuts import render,redirect
-from django.contrib.auth.decorators import login_required
-from .forms import NewUserForm
-from .email import send_welcome_email
-from django.http import HttpResponse, Http404,HttpResponseRedirect,request
+# from django.shortcuts import render,redirect
+# from django.contrib.auth.decorators import login_required
+# from .forms import NewUserForm,PostForm,CommentForm,ProfileForm
+# from .email import send_welcome_email
+# from django.http import HttpResponse, Http404,HttpResponseRedirect,request
+# from .models import *
 
 
-# Create your views here.
+# # Create your views here.
 
 
-@login_required(login_url='/accounts/login/')
-def home(request):
-    image_form = PostForm()
-    image = Post.objects.all()
-    commentform = CommentForm()
-    return render(request,'home.html')
-
-def new_user(request):
-    current_user = request.user
-    if request.method == 'POST':
-        name = form.cleaned_data['your_name']
-        email = form.cleaned_data['email']
-        recipient = InstaLetterRecipients(name = name,email =email)
-        form = NewUserForm(request.POST, request.FILES)
-        recipient.save()
-        send_welcome_email(name,email)
+# @login_required(login_url='/accounts/login/')
+# def home(request):
+#     image_form = PostForm()
+#     image = Post.objects.all()
+#     print('-'* 20,image)
+#     commentform = CommentForm()
+#     if request.method == 'POST':
+#         form = PostForm(request.POST, request.FILES)
+#         if form.is_valid():
+#             request.user.profile.post(form)
+#     return render(request, 'landing.html', {'images':image},locals())
 
 
-        if form.is_valid():
-            article = form.save(commit=False)
-            
-            article.save()
-            # return redirect(new_user)
-            
- 
-    else:
-        form = NewUserForm()
-    return render(request, 'new_user.html', {"form": form,"letterForm":form})
 
-    
-def profile(request):
-    current_user = request.user
-    if request.method == 'POST':
-        form = NewArticleForm(request.POST, request.FILES)
-        if form.is_valid():
-            feed = form.save(commit=False)
-            feed.save()
-      
-
-    else:
-        form = NewPostForm()
-    return render(request, 'new_article.html', {"form": form})
+# def mine(request):
+#     images = request.user.profile.posts.all()
+#     user_object = request.user
+#     user_images = user_object.profile.posts.all()
+#     user_saved = [save.photo for save in user_object.profile.saves.all()]
+#     user_liked = [like.photo for like in user_object.profile.mylikes.all()]
+#     print(user_liked)
+#     return render(request, 'myprofile.html', locals())
 
 
-    return render(request,'profile.html')
+# @login_required(login_url='/accounts/login/')
+# def edit(request):
+#     if request.method == 'POST':
+#         print(request.FILES)
+#         new_profile = ProfileForm(
+#             request.POST,
+#             request.FILES,
+#             instance=request.user.profile
+#         )
+#         if new_profile.is_valid():
+#             new_profile.save()
+#             print(new_profile.fields)
+#             # print(new_profile.fields.profile_picture)
+#             return redirect('myaccount')
+#     else:
+#         new_profile = ProfileForm(instance=request.user.profile)
+#     return render(request, 'edit.html', locals())
 
 
+# @login_required(login_url='/accounts/login/')
+# def user(request, user_id):
+#     user_object=get_object_or_404(User, pk=user_id)
+#     if request.user == user_object:
+#         return redirect('myaccount')
+#     isfollowing = user_object.profile not in request.user.profile.follows
+#     user_images = user_object.profile.posts.all()
+#     user_liked = [like.photo for like in user_object.profile.mylikes.all()]
+#     return render(request, 'profile.html', locals())
+
+
+# @login_required(login_url='/accounts/login/')
+# def comment_on(request, post_id):
+#     commentform = CommentForm()
+#     post = get_object_or_404(Post, pk=post_id)
+#     if request.method == 'POST':
+#         form = CommentForm(request.POST)
+#         if form.is_valid():
+#             comment = form.save(commit=False)
+#             comment.user = request.user.profile
+#             comment.photo = post
+#             comment.save()
+#     return render(request, 'posts.html', locals())
+
+
+# @login_required(login_url='/accounts/login/')
+# def like(request, post_id):
+#     post = get_object_or_404(Post, pk=post_id)
+#     request.user.profile.like(post)
+#     return JsonResponse(post.count_likes, safe=False)
+
+# @login_required(login_url='/accounts/login/')
+# def save(request, post_id):
+#     post = get_object_or_404(Post, pk=post_id)
+#     request.user.profile.save_image(post)
+#     return JsonResponse({}, safe=False)
+
+
+# @login_required(login_url='/accounts/login/')
+# def unlike(request, post_id):
+#     post = get_object_or_404(Post, pk=post_id)
+#     request.user.profile.unlike(post)
+#     return JsonResponse(post.count_likes, safe=False)
+
+# @login_required(login_url='/accounts/login/')
+# def togglefollow(request, user_id):
+#     target = get_object_or_404(User, pk=user_id).profile
+#     request.user.profile.togglefollow(target)
+#     response = [target.followers.count(),target.following.count()]
+#     return JsonResponse(response, safe=False)
+
+# @login_required(login_url='/accounts/login/')
+# def find(request, name):
+#     results = Profile.find_profile(name)
+#     return render(request, 'searchresults.html', locals())
