@@ -43,7 +43,7 @@
                 <div>
                     <strong><span id="likespan{{image.id}}">{{image.count_likes}}</span> like{{image.count_likes|pluralize}}</strong>
                 </div>
-                <!-- {% if image.get_comments %}
+                {% if image.get_comments %}
                 <div style="border-bottom: solid 1px #bbb;"></div>
                 {% endif %}
                 {% for comment in image.get_comments|slice:"8" %}
@@ -60,7 +60,7 @@
             </div>
           </div>
         {% endfor %}
-    </div>
+    <!-- </div>
     <div class="card-body col-md-4 d-none d-md-block" id="stories">
         <div class="card-title">
             <img src="{{user.profile.profile_picture.url}}" class="rounded-circle border" alt="{{user.username}}" width="50" height="50">
