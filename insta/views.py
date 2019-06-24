@@ -63,18 +63,18 @@ def user(request, user_id):
     return render(request, 'profile.html', locals())
 
 
-# @login_required(login_url='/accounts/login/')
-# def comment_on(request, post_id):
-#     commentform = CommentForm()
-#     post = get_object_or_404(Post, pk=post_id)
-#     if request.method == 'POST':
-#         form = CommentForm(request.POST)
-#         if form.is_valid():
-#             comment = form.save(commit=False)
-#             comment.user = request.user.profile
-#             comment.photo = post
-#             comment.save()
-#     return render(request, 'posts.html', locals())
+@login_required(login_url='/accounts/login/')
+def comment_on(request, post_id):
+    commentform = CommentForm()
+    post = get_object_or_404(Post, pk=post_id)
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.user = request.user.profile
+            comment.photo = post
+            comment.save()
+    return render(request, 'posts.html', locals())
 
 
 # @login_required(login_url='/accounts/login/')
