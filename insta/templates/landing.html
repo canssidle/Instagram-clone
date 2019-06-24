@@ -24,7 +24,7 @@
                 </a>
               </div>
           </div>
-            <!-- <div class="card-text">
+            <div class="card-text">
                 <div style="background-image: url({{image.image.url}});background-size: contain;position: sticky" ondblclick="like({{image.id}})">
                     <img src="{{image.image.url}}" style="visibility: hidden;"  width="100%"/>
                     <span class="likeheart instaicon" id="likeheart{{image.id}}"></span>
@@ -43,7 +43,7 @@
                 <div>
                     <strong><span id="likespan{{image.id}}">{{image.count_likes}}</span> like{{image.count_likes|pluralize}}</strong>
                 </div>
-                {% if image.get_comments %}
+                <!-- {% if image.get_comments %}
                 <div style="border-bottom: solid 1px #bbb;"></div>
                 {% endif %}
                 {% for comment in image.get_comments|slice:"8" %}
