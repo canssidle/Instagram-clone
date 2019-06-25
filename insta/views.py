@@ -1,4 +1,4 @@
-# from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
 from .forms import NewUserForm,PostForm,CommentForm,ProfileForm
 from .email import send_welcome_email
@@ -103,7 +103,7 @@ def togglefollow(request, user_id):
     response = [target.followers.count(),target.following.count()]
     return JsonResponse(response, safe=False)
 
-# @login_required(login_url='/accounts/login/')
-# def find(request, name):
-#     results = Profile.find_profile(name)
-#     return render(request, 'searchresults.html', locals())
+@login_required(login_url='/accounts/login/')
+def find(request, name):
+    results = Profile.find_profile(name)
+    return render(request, 'searchresults.html', locals())
