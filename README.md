@@ -9,7 +9,7 @@ Instagram clone is an application that is similary to Instagram app.A usure can 
 
 | Behavior our program should handle | Input description |  Output description
 | --- | --- | --- |
-| `Register/Sigh up` | Fill in the required details | The user will recieve an activation email
+| `Register/Sign up` | Fill in the required details | The user will recieve an activation email
 | `Login` |Enter the reqired details |  The user will be redirected to the homepage
 | `Profile` | The user can edit their profile by clicking on the edit.This is where the user can upload their profile photo | Shows the profile with the changes
 | `Comment/Like`| The user can click on the like or the comment section to like the photo or comment| The comment will be appended on the comment section of the photo 
