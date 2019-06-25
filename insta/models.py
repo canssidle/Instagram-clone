@@ -77,16 +77,16 @@ class Comment(models.Model):
     user = models.ForeignKey(Profile, related_name='comments')
 
 
-# class Likes(models.Model):
-#     user = models.ForeignKey(Profile, related_name='mylikes')
-#     photo = models.ForeignKey(Post, related_name='photolikes')
+class Likes(models.Model):
+    user = models.ForeignKey(Profile, related_name='mylikes')
+    photo = models.ForeignKey(Post, related_name='photolikes')
 
-# class Saves(models.Model):
-#     user = models.ForeignKey(Profile, related_name='saves')
-#     photo = models.ForeignKey(Post)
+class Saves(models.Model):
+    user = models.ForeignKey(Profile, related_name='saves')
+    photo = models.ForeignKey(Post)
 
-#     class Meta:
-#         ordering = ["-pk"]
+    class Meta:
+        ordering = ["-pk"]
 
 # class Follows(models.Model):
 #     follower = models.ForeignKey(Profile, related_name='following')
